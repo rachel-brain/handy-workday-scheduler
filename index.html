@@ -5,26 +5,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Work Day Scheduler</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Work Day Scheduler</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
   <header class="jumbotron">
-    <h1 class="display-3">Work Day Scheduler</h1>
-    <p class="lead">A simple calendar app for scheduling your work day</p>
-    <p id="currentDay" class="lead"></p>
+    <h1 class="display-3">My Workday Scheduler</h1>
+    <p class="lead">A simple calendar app for scheduling the work day</p>
+    <p class="lead"><span id="currentDay1">loading...</span></p>
+    <p class="lead"><span id="currentDay2">loading...</span></p>
   </header>
+
   <div class="container">
-    <!-- Timeblocks go here -->
+    <div class="row custom-heading">
+      <div id="time-head" class="col">Time</div>
+      <div id="tasks-head" class="col-10">Tasks</div>
+      <div id="save-head" class="col">Save</div>
+    </div>
+
+    <form id="form">
+      <div class="row time-block">
+        <div class="col custom-time">8am</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input8" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="8"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">9am</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input9" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="9"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">10am</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input10" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="10"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">11am</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input11" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="11"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">12 noon</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input12" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="12"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">1pm</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input13" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="13"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">2pm</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input14" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="14"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">3pm</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input15" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="14"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">4pm</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input16" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="16"></button>
+      </div>
+      <div class="row time-block">
+        <div class="col custom-time">5pm</div>
+        <input type="text" class="col-10 custom-taskbar" id="task-input17" placeholder="Add task/s here">
+        <button class="save-button col custom-icon1 fas fa-save" style="font-size:45px;" data-time="17"></button>
+      </div>
+    </form>
+    <br>
+    <br>
+    <div class="container px-5">
+      <div class="row custom-key gx-5 justify-content-md-center">
+        <div class="col-3 p-4 past">Grey = past</div>
+        <div class="col-3 p-4 present">Red = right now</div>
+        <div class="col-3 p-4 future">Green = future</div>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
