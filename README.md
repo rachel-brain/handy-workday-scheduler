@@ -45,7 +45,7 @@ The main test run was to enter & save hourly tasks to ensure that all of the cri
  * the tasks were retrieved from local storage on page load
  * the time on the Scheduler was compared to the current time & color coded correctly (grey/red/green)
  
- Unfortunately, at the time of publishing, the Scheduler was not working correctly for all criteria & further debugging is required.
+ Unfortunately, at the time of publishing, the Scheduler was not working correctly for retrieval of inputs from local storage on page load.  Therefore, further debugging is required.  Also, DRY principles were not used in the writing of this code.  If I had more time, I would have replaced some of the vanilla Javascript with jQuery & simplified the code to loop through some of the multiple inpouts & take out the repeated code.
 
 
 ## URLs

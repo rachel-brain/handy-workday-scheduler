@@ -1,3 +1,4 @@
+// Set live date timer
 var today = moment();
 var dateDisplayEl = $('#currentDay1');
 var timeDisplayEl = $('#currentDay2');
@@ -10,10 +11,6 @@ function displayTime() {
 
 setInterval(displayTime, 1000);
 
-// TODO:
-// Remove console.logs
-// Time match
-
 
 var savedTimeTask8;
 var savedTimeTask9;
@@ -25,10 +22,10 @@ var savedTimeTask14;
 var savedTimeTask15;
 var savedTimeTask16;
 var savedTimeTask17;
+var savedTimeTask18;
 
+// On page load, saved hourly tasks are retrieved from local storage
 function init() {
-    // $("#task-input8").val(localStorage.getItem("savedTimeTask8"));
-
     var savedSchedule8 = JSON.parse(localStorage.getItem("savedTimeTask8"));
     var savedSchedule9 = JSON.parse(localStorage.getItem("savedTimeTask9"));
     var savedSchedule10 = JSON.parse(localStorage.getItem("savedTimeTask10"));
@@ -39,42 +36,63 @@ function init() {
     var savedSchedule15 = JSON.parse(localStorage.getItem("savedTimeTask15"));
     var savedSchedule16 = JSON.parse(localStorage.getItem("savedTimeTask16"));
     var savedSchedule17 = JSON.parse(localStorage.getItem("savedTimeTask17"));
+    var savedSchedule18 = JSON.parse(localStorage.getItem("savedTimeTask18"));
 
-    console.log(savedSchedule8);
-    console.log(savedSchedule17);
-
+    // Saved hourly tasks are rendered on Scheduler
     if (savedSchedule8 !== null) {
-        // document.getElementById("saved-input8").innerHTML = savedSchedule8.task8;
-        // document.getElementById("saved-input8").textContent = savedSchedule8.task8;
-        // document.getElementById("saved-input8").textContent = savedTimeTask8.task8;
-        // document.getElementById("task-input8").textContent = savedTimeTask8.task8;
-        // };
-        // if (savedSchedule9 !== null) {
-        //     document.getElementById("saved-input9").innerHTML = savedSchedule9.task9;
-        // }
-        // if (savedSchedule10 !== null) {
-        //     document.getElementById("saved-input10").innerHTML = savedSchedule10.task10;
-        // }
-        // if (savedSchedule11 !== null) {
-        //     document.getElementById("saved-input11").innerHTML = savedSchedule11.task11;
-        // }
-        // if (savedSchedule12 !== null) {
-        //     document.getElementById("saved-input12").innerHTML = savedSchedule12.task12;
-        // }
-        // if (savedSchedule13 !== null) {
-        //     document.getElementById("saved-input13").innerHTML = savedSchedule13.task13;
-        // }
-        // if (savedSchedule14 !== null) {
-        //     document.getElementById("saved-input14").innerHTML = savedSchedule14.task14;
-        // }
-        // if (savedSchedule15 !== null) {
-        //     document.getElementById("saved-input15").innerHTML = savedSchedule15.task15;
-        // }
-        // if (savedSchedule16 !== null) {
-        //     document.getElementById("saved-input16").innerHTML = savedSchedule16.task16;
-        // }
-        // if (savedSchedule17 !== null) {
-        //     document.getElementById("saved-input17").innerHTML = savedSchedule17.task17;
+        savedTimeTask8 = savedSchedule8;
+        document.getElementById("task-input8").innerHTML = savedTimeTask8.task8;
+        console.log(savedTimeTask8.task8);
+    };
+    if (savedSchedule9 !== null) {
+        savedTimeTask9 = savedSchedule9;
+        document.getElementById("task-input9").innerHTML = savedTimeTask9.task9;
+        console.log(savedTimeTask9.task9);
+    }
+    if (savedSchedule10 !== null) {
+        savedTimeTask10 = savedSchedule10;
+        document.getElementById("task-input10").innerHTML = savedTimeTask10.task10;
+        console.log(savedTimeTask10.task10);
+    }
+    if (savedSchedule11 !== null) {
+        savedTimeTask11 = savedSchedule11;
+        document.getElementById("task-input11").innerHTML = savedTimeTask11.task11;
+        console.log(savedTimeTask11.task11);
+    }
+    if (savedSchedule12 !== null) {
+        savedTimeTask12 = savedSchedule12;
+        document.getElementById("task-input12").innerHTML = savedTimeTask12.task12;
+        console.log(savedTimeTask12.task12);
+    }
+    if (savedSchedule13 !== null) {
+        savedTimeTask13 = savedSchedule13;
+        document.getElementById("task-input13").innerHTML = savedTimeTask13.task13;
+        console.log(savedTimeTask13.task13);
+    }
+    if (savedSchedule14 !== null) {
+        savedTimeTask14 = savedSchedule14;
+        document.getElementById("task-input14").innerHTML = savedTimeTask14.task14;
+        console.log(savedTimeTask14.task14);
+    }
+    if (savedSchedule15 !== null) {
+        savedTimeTask15 = savedSchedule15;
+        document.getElementById("task-input15").innerHTML = savedTimeTask15.task15;
+        console.log(savedTimeTask15.task15);
+    }
+    if (savedSchedule16 !== null) {
+        savedTimeTask16 = savedSchedule16;
+        document.getElementById("task-input16").innerHTML = savedTimeTask16.task16;
+        console.log(savedTimeTask16.task16);
+    }
+    if (savedSchedule17 !== null) {
+        savedTimeTask17 = savedSchedule17;
+        document.getElementById("task-input17").innerHTML = savedTimeTask17.task17;
+        console.log(savedTimeTask17.task17);
+    }
+    if (savedSchedule18 !== null) {
+        savedTimeTask18 = savedSchedule18;
+        document.getElementById("task-input18").innerHTML = savedTimeTask18.task18;
+        console.log(savedTimeTask18.task18);
     } else {
         return;
     };
@@ -93,10 +111,12 @@ var taskInput14 = document.querySelector("#task-input14");
 var taskInput15 = document.querySelector("#task-input15");
 var taskInput16 = document.querySelector("#task-input16");
 var taskInput17 = document.querySelector("#task-input17");
+var taskInput18 = document.querySelector("#task-input18");
 
 var taskInputEls = document.querySelectorAll(".custom-taskbar");
 console.log(taskInputEls);
 
+// Save all hourly inputs individually
 function saveTask(event) {
     event.preventDefault();
     console.log(event);
@@ -144,7 +164,12 @@ function saveTask(event) {
         time: 17,
         task17: taskInput17.value
     };
+    savedTimeTask18 = {
+        time: 18,
+        task18: taskInput18.value
+    };
 
+    // Save to local storage
     localStorage.setItem("savedTimeTask8", JSON.stringify(savedTimeTask8));
     localStorage.setItem("savedTimeTask9", JSON.stringify(savedTimeTask9));
     localStorage.setItem("savedTimeTask10", JSON.stringify(savedTimeTask10));
@@ -155,52 +180,36 @@ function saveTask(event) {
     localStorage.setItem("savedTimeTask15", JSON.stringify(savedTimeTask15));
     localStorage.setItem("savedTimeTask16", JSON.stringify(savedTimeTask16));
     localStorage.setItem("savedTimeTask17", JSON.stringify(savedTimeTask17));
+    localStorage.setItem("savedTimeTask18", JSON.stringify(savedTimeTask18));
 };
 
 saveBtnEls.forEach(function (element) {
     element.addEventListener("click", saveTask);
 });
 
-// *** Needs to persist
-// $("#task-input8").val(localStorage.getItem("savedTimeTask[0]"));
-// $("#task-input9").val(localStorage.getItem("savedTimeTask[1]"));
-// $("#task-input10").val(localStorage.getItem("savedTimeTask[2]"));
-// $("#task-input11").val(localStorage.getItem("savedTimeTask[3]"));
-// $("#task-input12").val(localStorage.getItem("savedTimeTask[4]"));
-// $("#task-input13").val(localStorage.getItem("savedTimeTask[5]"));
-// $("#task-input14").val(localStorage.getItem("savedTimeTask[6]"));
-// $("#task-input15").val(localStorage.getItem("savedTimeTask[7]"));
-// $("#task-input16").val(localStorage.getItem("savedTimeTask[8]"));
-// $("#task-input17").val(localStorage.getItem("savedTimeTask[9]"));
-
-
-
-// *** Schedule time to match to current hour (moment.js)
+// Schedule time to compare to current hour (moment.js)
 function matchTime() {
     var hour = moment().hours();
-    console.log(hour);
 
     $(".save-button").each(function () {
         var customTime = parseInt($(this).attr("id"));
-        console.log(hour, customTime)
-        console.log(typeof (hour));
-        console.log(typeof (customTime));
+        var theTaskbar = $(this).closest(".time-block").find(".custom-taskbar");
 
         if (customTime === hour) {
             // display as present
-            $(".custom-taskbar").addClass("present");
-            $(".custom-taskbar").removeClass("past");
-            $(".custom-taskbar").removeClass("future");
+            theTaskbar.addClass("present");
+            theTaskbar.removeClass("past");
+            theTaskbar.removeClass("future");
         } else if (customTime < hour) {
             // display as past
-            $(".custom-taskbar").removeClass("present");
-            $(".custom-taskbar").addClass("past");
-            $(".custom-taskbar").removeClass("future");
+            theTaskbar.removeClass("present");
+            theTaskbar.addClass("past");
+            theTaskbar.removeClass("future");
         } else {
             // display as future
-            $(".custom-taskbar").removeClass("present");
-            $(".custom-taskbar").removeClass("past");
-            $(".custom-taskbar").addClass("future");
+            theTaskbar.removeClass("present");
+            theTaskbar.removeClass("past");
+            theTaskbar.addClass("future");
         };
     });
 };
