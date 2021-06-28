@@ -57,6 +57,7 @@ body {
   align-items: center;
 }
 
+h2,
 .custom-taskbar {
   border: 1px solid var(--black);
   background-color: var(--white);
@@ -99,12 +100,6 @@ textarea {
   border-top: 1px solid var(--white);
 }
 
-.hour {
-  background-color: var(--white);
-  color: var(--black);
-  border-top: 1px dashed var(--black);
-}
-
 .past {
   background-color: var(--grey);
   color: var(--black);
@@ -125,15 +120,17 @@ textarea {
 
 .save-button {
   border-left: 1px solid var(--black);
+  border-top: 1px solid var(--black);
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: var(--teal);
   color: var(--white);
 }
 
-.save-button i:hover {
+button:hover {
   font-size: 60px;
   transition: all 0.3s ease-in-out;
+  background-color: var(--grey);
 }
 
 .custom-key {
